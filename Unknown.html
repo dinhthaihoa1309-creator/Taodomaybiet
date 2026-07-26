@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone System Update</title>
+    <style>
+        body {
+            background-color: #1c1c1e;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .iphone {
+            width: 320px;
+            height: 640px;
+            background: #000;
+            border-radius: 40px;
+            border: 10px solid #333;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .notch {
+            width: 120px;
+            height: 25px;
+            background: #333;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .content {
+            margin-top: 60px;
+        }
+
+        .apple-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .alert-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            background: #007aff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .counter {
+            font-size: 14px;
+            color: #8e8e93;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="iphone">
+    <div class="notch"></div>
+    <div class="content">
+        <div class="apple-icon"></div>
+        <h2>Cảnh Báo iOS</h2>
+        <p>Phát hiện thiết bị của bạn bị nhiễm 99 vi-rút!</p>
+        
+        <div class="alert-box" id="troll-box">
+            <p id="msg">Bấm nút bên dưới để diệt vi-rút ngay lập tức.</p>
+            <button class="btn" onclick="troll()">SỬA NGAY</button>
+        </div>
+    </div>
+
+    <div class="counter">
+        👀 Đã có <strong id="count">0</strong> con gà mắc bẫy
+    </div>
+</div>
+
+<script>
+    // Đếm số người vào trang bằng localStorage
+    let views = localStorage.getItem('page_views') || 0;
+    views = parseInt(views) + 1;
+    localStorage.setItem('page_views', views);
+    document.getElementById('count').innerText = views;
+
+    // Troll function
+    function troll() {
+        alert("Haha bị lừa rồi thằng ngu! 😂");
+        document.getElementById('msg').innerText = "Máy bạn đã bị hack hoàn toàn! 🤡";
+    }
+</script>
+
+</body>
+</html>
